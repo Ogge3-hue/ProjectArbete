@@ -33,9 +33,7 @@ html{
     padding-top: 10px;
     cursor: pointer;
 }
-.logo:hover{
-    color: rgb(255, 255, 255);
-}
+
 .menu {
     width: 400px;
     float: left;
@@ -179,14 +177,115 @@ crunchyroll:hover {
     color: rgb(255, 136, 0);
 }
 
+.form {
+    width: 300px;
+    height: 420px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8)50% , rgba(0,0,0,0.8)50%);
+    position: absolute;
+    top: 20%;
+    left: 80%;
+border-radius: 10px;
+   padding: 25px;
 
+}
 
+.form h2{
+    width: 220px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: #fff;
+    font-size: 22px;
+    background-color: rgba(255, 136, 0, 0.773);
+    border-radius: 10px;
+    padding: 10px;
+    margin: auto;
+}
+.form input{
+    width: 240px;
+    height: 35px;
+    background: transparent;
+    border-bottom: 1px solid rgb(255, 136, 0);
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    color: #fff;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
+    margin-right: 30px;
+    margin-left: 30px;
+}
 
+.form input:focus{
+    outline: none;
+}
+::placeholder{
+    color: #ffffffab;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
+.btnn{
+    width: 240px;
+    height: 40px;
+    background: rgba(255, 136, 0, 0.773);
+    border: none;
+    font-size: 18px;
+    border-radius: 10px;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: 0.4s ease;
+    color:#fff;
+    margin-right: 30px;
+    margin-left: 30px;
+}
 
+.btnn:hover{
+    background: rgb(255, 255, 255);
+    color: rgb(255, 136, 0);
+}
 
+.btnn a{
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
+.form .link{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    padding-top: 10px;
+    text-align: center; 
+    color: #fff;
+}
 
+.form .liw{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    padding-top: 10px;
+    text-align: center; 
+    color: #fff;
+}
+
+.form .link a{
+    text-decoration: none;
+    color: rgb(255, 136, 0);
+}
+
+.icons a{
+text-decoration: none;
+color: #fff;
+font-size: xx-large;
+}
+.icons{
+    margin-top: 30px;
+    text-align: center;
+    
+}
+.icons :hover{
+    color: rgb(255, 136, 0);
+    transition: 0.4s ease;
+}
 
 
 
