@@ -33,9 +33,7 @@ html{
     padding-top: 10px;
     cursor: pointer;
 }
-.logo:hover{
-    color: rgb(255, 255, 255);
-}
+
 .menu {
     width: 400px;
     float: left;
