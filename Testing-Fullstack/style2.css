@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+:root{ 
+  --base-color:antiquewhite;
+  --text-color: black;
+  --primary-color: rgba(90, 5, 90, 0.397);
+  --accent-color: rgb(146, 196, 161);
+  --secondary-color: rgb(104, 54, 104);
+  --background-green: #4caf50;
+}
+
+
+
+::before ::after    {box-sizing: border-box;}
+html{
+
+    scroll-behavior: smooth;
+}
+
+.main-part2 {
+    background-image: url(SamuraiMoon1.png);
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+.grid-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: repeat(24, 100px);
+        padding: 20px;
+      }
+      .grid-item {
+        background: var(--background-green);
+        color: var(--text-color);
+        padding: 20px;
+        font-size: 1.5em;
+        text-align: center;
+        border-radius: 8px;
+      
+      }
+ 
+      .infobox {
+        grid-row-start: 12;
+        grid-column-start: 2;
+        grid-row-end: 22;
+        grid-column-end: 6;
+      }
+ 
+      .loginbox {
+        grid-row: 2 / 5;
+        grid-column: 4 / 5;
+        grid-area: 4 / 7 / 10 / 8;
+      }
+ 
+      .welcomebox {
+        grid-area: 3 / 2 / 9 / 5;
+      }
+
+      .menu{
+        grid-area: 1 / 8 / 1 / 2;
+      }
+
+
+      .logo{
+        background-image:url(SamuraiLogo1-cpy.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 7rem;
+        height: 7rem;
+        position:center;
+        border-radius: 60%;
+      }
+
+      .menu-container{
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    padding-top:5px;
+    padding-bottom:5px;
+    color: var(--text-color);
+    font: Helvetica;
+    font-size: 1rem;
+
+    ul{ 
+      display:flex;
+      gap:2rem;
+      list-style-type: none;
+      
+    }
+      }
+
+      .menu-container a {
+        text-decoration:none;
+      }
+
+      .right-controls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-right: 2rem;
+}
+
+.darktheme-container {
+    display: flex;
+    align-items: center;
+}
+
+.darktheme {
+    padding: 0.05rem 0.1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    color: var(--accent-color);
+    background-color: var(--primary-color);
+}
+
+.darktheme:hover{
+    background-color: var(--secondary-color);
+    color: var(--base-color);
+}
+
+.srchbar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.srch {
+    width: 10rem;
+    height: 1.5rem;
+    border-radius: 1rem;
+    border: none;
+    padding: 0 1rem;
+    font-size: 1rem;
+    background-color: var(--primary-color);
+    color: var(--accent-color);
+}
+
+.btn {
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: var(--accent-color);
+    border: none;
+}
+
+.btn:hover {
+    background-color: var(--secondary-color);
+    color: var(--accent-color);
+}
+
+
+.darktheme .btn:active{
+  background-color: var(--base-color);
+  color: var(--text-color);
+}

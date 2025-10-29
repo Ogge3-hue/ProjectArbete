@@ -1,0 +1,86 @@
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+:root{
+    --fontstyle-- :var('Arial Black', Gadget sans-serif);
+    --use-color-green--: rgba(22, 58, 38, 0.788);
+    --font-black--: black; 
+}
+
+
+body{
+    display:flex;
+    min-height: 150rem; /* Set a minimum height for the body */
+    justify-content: flex-end;
+    background-image: url(SamuraiMoon1.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+#sitelogo{
+    flex-shrink:0;
+    /* makes the box for image not to shrink */
+    margin-right:auto;
+}
+
+
+.box{
+    height:3.2rem;
+    width:3.2rem;
+    background-color: var(--use-color-green--);
+    font-size: 2rem;
+    color: var(--font-black--);
+/* 3 to center the text in the boxes */
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-style: var(--fontstyle--);
+    font-size: medium;
+    font-weight: bold;
+    flex-grow: 0.5;
+    margin-top: 1rem;
+}
+
+.hi-box{
+   position: absolute;
+   flex-direction: column;
+   align-items:center;
+   margin-top:5rem;
+ 
+}
+
+.box button{
+    height:2rem;
+    width:2rem;
+    background-color: transparent;
+    border:none;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+}
+
+.box button:hover{
+    transform: scale(1.2);
+    transition: transform 0.3s ease;
+}
+
+.box a{
+    text-decoration: none;
+    color: var(--font-black--);
+}
+.box a:hover{
+    color: rgba(255, 255, 255, 0.596);
+    transition: color 0.5s ease;
+}
+
+.hi-box h1.firstpart{
+    color:rgb(172, 253, 190)
+}
+
+

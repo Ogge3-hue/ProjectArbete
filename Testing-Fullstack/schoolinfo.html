@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fullstack 2025</title>
+    <link rel="stylesheet" href="schoolinfo.css" />
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header>
+      <h1>Welcome to Fullstack 2025</h1>
+      <p class="general-text" id="main-paragraph">
+        This is a simple HTML template.
+      </p>
+      <hr />
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <p class="base-text">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. A nulla omnis,
+        rerum veritatis quis aperiam unde recusandae consectetur cupiditate nisi
+        assumenda, provident fugiat in nobis excepturi numquam ipsam, voluptates
+        odio.
+      </p>
+      <!-- Image and Links Section -->
+      <section class="intro-section">
+        <img
+          title="AI Dog"
+          width="300"
+          src="https://wp.technologyreview.com/wp-content/uploads/2024/11/LucidSim-11.jpg?fit=1080,607"
+          alt="ai hund"
+        />
+        <div class="external-links">
+          <a href="https://www.google.com" target="_blank">Visit Example</a>
+          <a href="flexbox.html">Visit flexbox page</a>
+          <a href="grid.html">Visit grid page</a>
+          <a href="/about.html">Visit Test Page</a>
+        </div>
+      </section>
+      <!-- <iframe src="grid.html" height="500" width="500" frameborder="0"></iframe> -->
+      <!-- Navigation Section -->
+      <nav class="search-engines-nav">
+        <h2>My favorite search engines</h2>
+        <ul class="red-list text-base">
+          <li id="first-item">
+            <a href="www.google.se">Google</a>
+          </li>
+          <li>
+            <a href="www.bing.com">BING</a>
+          </li>
+          <li>
+            <a href="www.duckduckgo.org">DuckDuckGo</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Lists Section -->
+      <section class="lists-section">
+        <h2>Different Types of Lists</h2>
+
+        <!-- Ordered List -->
+        <div class="ordered-list-container">
+          <h3>Ordered List Example</h3>
+          <ol>
+            <li>
+              <img
+                src="https://via.placeholder.com/150"
+                alt="Placeholder image"
+              />
+            </li>
+            <li class="base-text error-text">Second item</li>
+            <li>Third item</li>
+          </ol>
+        </div>
+
+        <!-- Definition List -->
+        <div class="definition-list-container">
+          <h3>Web Technologies</h3>
+          <dl class="text-base">
+            <dt>HTML</dt>
+            <dd>A markup language for creating web pages</dd>
+            <dt>CSS</dt>
+            <dd>A style sheet language for designing web pages</dd>
+            <dt>JavaScript</dt>
+            <dd>A programming language for web development</dd>
+          </dl>
+        </div>
+      </section>
+      <!-- Form Section -->
+      <section class="form-section">
+        <h2>This is an example of a form</h2>
+        <form action="/submit" method="POST">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="number">Number:</label>
+            <input type="number" id="number" name="number" required />
+          </div>
+
+          <div class="form-group">
+            <label for="date">Date:</label>
+            <input type="date" name="date" id="date" />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea
+              name="message"
+              id="message"
+              placeholder="Enter your message here..."
+            ></textarea>
+          </div>
+
+          <input type="submit" value="Submit" />
+        </form>
+      </section>
+
+      <!-- Block Elements Section -->
+      <section class="block-elements-section">
+        <h2 class="red-background">
+          My Favorite block elements
+          <span class="yellow-highlight">G</span>
+          Här kan du läsa mer <a href="www.blocket.se">blocket</a>
+        </h2>
+
+        <p class="text-base">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, illo
+          facere corrupti blanditiis eligendi odit laudantium debitis itaque
+          quos et, dolore harum ducimus aspernatur porro. Vel quia ullam
+          obcaecati repellendus.
+        </p>
+
+        <div class="social-links">
+          <a class="facebook-link" href="facebook.com">FACEBOOK</a>
+        </div>
+
+        <p class="yellow-highlight">Hej</p>
+
+        <p class="text-base">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae
+          numquam reiciendis, nulla nesciunt similique dicta nemo vel quod sint
+          quibusdam libero sed facere odio aliquam corrupti consequuntur ipsam
+          dolorum ex?
+        </p>
+      </section>
+
+      <!-- Article Section -->
+      <article class="divs-article">
+        <div class="article-content">
+          <h2>Divar</h2>
+          <p>Det finns ingen tråkigare tag!</p>
+          <a href="google.se" class="nested-content-link">
+            <div class="nested-div">
+              <h3 class="main-font">En div inuti en a</h3>
+              <p>Detta är en div inuti en a</p>
+            </div>
+          </a>
+        </div>
+        <div class="article-image">
+          <img src="https://via.placeholder.com/150" alt="Placeholder image" />
+        </div>
+      </article>
+    </main>
+
+    <div class="example-container">
+      <a class="transition-example-link" href="">Click me</a>
+      <div class="hidden-sibling">You cant see me?</div>
+    </div>
+  </body>
+</html>
