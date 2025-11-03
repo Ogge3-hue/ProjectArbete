@@ -1,0 +1,110 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+:root{
+    --fontstyle-- :var('Arial Black', Gadget sans-serif);
+    --use-color-green--: rgba(22, 58, 38, 0.788);
+    --font-black--: black; 
+}
+
+body{
+    display:flex;
+    min-height: 150rem; /* Set a minimum height for the body */
+    background-image: url(SamuraiMoon1.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.box{
+    height:3.2rem;
+    width:3.2rem;
+    background-color: var(--use-color-green--);
+    font-size: 2rem;
+    color: var(--font-black--);
+/* 3 to center the text in the boxes */
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-style: var(--fontstyle--);
+    font-size: medium;
+    font-weight: bold;
+    flex-grow: 0.5;
+    margin-top: 1rem;
+
+}
+
+.aboutinfo{
+    position: relative;
+    border-color: black;
+
+}
+
+
+
+
+/* Footer styling */
+.footer{
+    max-width: 1000px;
+    margin: 2rem auto 3rem;
+    padding: 1.5rem 1.25rem;
+    background: linear-gradient(180deg, rgba(22,58,38,0.06), rgba(22,58,38,0.04));
+    border-radius: 10px;
+    text-align: center;
+    color: rgba(0,0,0,0.85);
+    background-color: rgba(194, 248, 206, 0.61);
+    
+}
+
+.footer h2{
+    margin: 0 0 0.5rem 0;
+    color: var(--font-black--);
+    font-size: 1.05rem;
+}
+
+.footer p{
+    margin: 0.5rem 0 1rem 0;
+    color: rgba(0,0,0,0.8);
+    max-width: 70ch;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer .reminder h3{
+    margin: 0.5rem 0 0.25rem 0;
+    color: var(--neon-green--);
+}
+
+.footer .ablaze{
+    margin: 0.25rem 0 0 0;
+    font-size: 1.3rem;
+    color: #ffd54f; /* yellow glow */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: pulseGlow 2s infinite ease-in-out;
+}
+
+@keyframes pulseGlow{ /* animation for glowing text */
+    0%{
+        text-shadow: 0 0 6px rgba(255,213,79,0.6), 0 0 14px rgba(255,213,79,0.25);
+        transform: translateY(0);
+    }
+    50%{
+        text-shadow: 0 0 12px rgba(255,213,79,0.9), 0 0 28px rgba(255,213,79,0.4);
+        transform: translateY(-2px);
+    }
+    100%{
+        text-shadow: 0 0 6px rgba(255,213,79,0.6), 0 0 14px rgba(255,213,79,0.25);
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 700px){
+    .footer{ padding: 1rem; margin: 1rem; }
+    .footer .ablaze{ font-size: 1.05rem; }
+}

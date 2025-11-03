@@ -5,15 +5,23 @@
     box-sizing: border-box;
 }
 
+::before ::after    {box-sizing: border-box;}
+html{
+
+    scroll-behavior: smooth;
+}
+
 :root{
     --fontstyle-- :var('Arial Black', Gadget sans-serif);
     --use-color-green--: rgba(22, 58, 38, 0.788);
     --font-black--: black; 
+    --neon-green--:rgb(194, 248, 206);
+    --hover-wheat--:wheat; 
 }
 
 body{
     display:flex;
-    min-height: 150rem; /* Set a minimum height for the body */
+    min-height: 170rem; /* Set a minimum height for the body */
     background-image: url(SamuraiMoon1.png);
     background-position: center;
     background-repeat: no-repeat;
@@ -42,10 +50,12 @@ body{
 
 
 .hi-box{ /* icon hamburger menu */
-   flex-direction: column;
-   margin-top:5rem;
-   display:flex;
-   margin-left: 1rem;
+    display:flex;
+    flex-direction: column;
+    align-items: center; /* center children horizontally */
+    text-align: center; /* center text inside */
+    margin-top:5rem;
+    margin-left: 0;
 }
 
 .box button{
@@ -59,7 +69,7 @@ body{
 }
 
 .box button:hover{ /* hamburger menu size increase */
-    transform: scale(1.3);
+    transform: scale(1.2);
     transition: transform 0.3s ease;
 }
 
@@ -72,10 +82,36 @@ body{
 .box a{
     text-decoration: none;
     color: var(--font-black--);
+    position: relative;
+    padding: 0.5rem 0.8rem;
 }
+
 .box a:hover{
-    color: rgba(255, 255, 255, 0.596);
-    transition: color 0.5s ease;
+    color: wheat;
+    transition: color 0.3s ease;
+}
+
+/* Style for active page */
+.box a.active {
+    color: wheat;
+}
+
+/* Underline effect for active page and hover */
+.box a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: wheat;
+    transition: all 0.3s ease;
+}
+
+.box a:hover::after,
+.box a.active::after {
+    width: 100%;
+    left: 0;
 }
 
 .hi-box h1.firstpart{ /* outline welcome in green */
@@ -88,9 +124,10 @@ body{
 .navbar{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center; /* center the navbar content */
     padding: 0.5rem 1rem;
     gap: 1rem;
+    background-color: rgba(160, 255, 200, 0.555);
 }
 
 .navbar .links{
@@ -102,7 +139,10 @@ body{
     padding: 0;
 }
 
-/* Logo inside the list (keeps image sizing) */
+.navbar .links{
+    justify-content: center; /* ensure links centered inside navbar */
+}
+
 .navbar .links #sitelogo{
     width: 3.2rem;
     height: 3.2rem;
@@ -124,6 +164,7 @@ body{
     font-weight: 600;
 }
 
+
 /* Override .box spacing for items inside the navbar so they line up */
 .navbar .box{
     height: auto;
@@ -132,6 +173,7 @@ body{
     background-color: transparent;
     padding: 0;
     flex-grow: 0;
+    
 }
 
 /* Hamburger appears on small screens */
@@ -153,6 +195,7 @@ body{
 
  .hamburg {
           display: none;
+        
         }
 
         @media (max-width: 750px) {
@@ -163,3 +206,229 @@ body{
             display: block;
           }
         }
+
+.hi-box {
+    /* welcome box styling */
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 1rem;
+    color: var(--font-black--);
+    background-color: var(--use-color-green--);
+    padding: 10px 14px;
+    margin: 1rem auto 3rem; /* increased bottom margin */
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+}
+
+.hi-box a{
+    font-size: 1rem;
+    color: var(--font-black--);
+    background-color: var(--neon-green--);
+    padding: 6px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    margin-top: 0.75rem;
+}
+
+.hi-box a:hover{
+    background-color: var(--hover-wheat--);
+    transition: transform 0.3s ease;
+}
+
+.hi-box h1{ /* tighten heading spacing and center */
+    margin: 0;
+    line-height: 1.05;
+}
+
+.hi-box .par{
+    max-width: 60ch;
+    margin-top: 0.75rem;
+}
+
+.form {
+    /* Center the form and improve spacing */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    margin: 0 auto 2rem;
+    padding: 2rem;
+    border-radius: 5px;
+    background: linear-gradient(to top, var(--use-color-green--)50% , var(--use-color-green--)50%);
+}
+
+/* Style form elements */
+.form h2 {
+    margin-bottom: 1.5rem;
+    color: var(--font-black--);
+}
+
+.form input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    background: transparent;
+    color: var(--hover-wheat--);
+}
+
+.form .login-btn {
+    width: 100%;
+    padding: 0.8rem;
+    margin: 1rem 0;
+    border: none;
+    border-radius: 4px;
+    background: var(--neon-green--);
+    color: var(--font-black--);
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.login-btn:hover {
+    background-color: var(--hover-wheat--);
+    transition: transform 0.3s ease;
+}
+
+.form .text-link {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.signup {
+    color: var(--neon-green--);
+    text-decoration: none;
+    font-weight: bold;
+}
+.signup:hover {
+    color: var(--hover-wheat--);
+    transition: transform 0.3s ease;
+}
+
+.form .icons {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+.form .icons a ion-icon {
+    font-size: 1.5rem;
+    color: var(--neon-green--);
+    cursor: pointer;
+}
+
+.icons a ion-icon:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+    color: wheat;
+}
+
+
+.news-content{
+    max-width: 900px;
+    margin: 2rem auto 3rem; /* space above and below */
+    padding: 1.5rem 1.25rem;
+    background: rgba(194, 248, 206, 0.61); 
+    border-radius: 8px;
+    color: var(--font-black--);
+    box-shadow: 0 6px 18px var(--hover-wheat--);  /* box glow */
+}
+
+.news-content h3{
+    margin: 0 0 0.75rem 0;
+    font-size: 2rem;
+    color: var(--font-black--);
+    text-align: center;
+    -webkit-text-stroke-color:  var(--hover-wheat--);
+    -webkit-text-stroke-width: 0.1px; /* subtle outline */
+}
+
+.news-content h4{
+    margin: 1rem 0 0.5rem 0;
+    font-size: 1.05rem;
+    color: var(--font-black--);
+}
+
+.news-content p{
+    margin: 0 0 0.75rem 0;
+    line-height: 1.45;
+    color: rgba(0,0,0,0.85);
+}
+
+.news-content ol{
+    padding-left: 1rem;
+    margin: 0;
+}
+
+@media (max-width: 700px){
+    .news-content{
+        margin: 1rem;
+        padding: 1rem;
+    }
+    .news-content h3{ font-size: 1.05rem; }
+}
+
+/* Footer styling */
+.footer{
+    max-width: 1000px;
+    margin: 2rem auto 3rem;
+    padding: 1.5rem 1.25rem;
+    background: linear-gradient(180deg, rgba(22,58,38,0.06), rgba(22,58,38,0.04));
+    border-radius: 10px;
+    text-align: center;
+    color: rgba(0,0,0,0.85);
+    background-color: rgba(194, 248, 206, 0.61);
+    
+}
+
+.footer h2{
+    margin: 0 0 0.5rem 0;
+    color: var(--font-black--);
+    font-size: 1.05rem;
+}
+
+.footer p{
+    margin: 0.5rem 0 1rem 0;
+    color: rgba(0,0,0,0.8);
+    max-width: 70ch;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer .reminder h3{
+    margin: 0.5rem 0 0.25rem 0;
+    color: var(--neon-green--);
+}
+
+.footer .ablaze{
+    margin: 0.25rem 0 0 0;
+    font-size: 1.3rem;
+    color: #ffd54f; /* yellow glow */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: pulseGlow 2s infinite ease-in-out;
+}
+
+@keyframes pulseGlow{ /* animation for glowing text */
+    0%{
+        text-shadow: 0 0 6px rgba(255,213,79,0.6), 0 0 14px rgba(255,213,79,0.25);
+        transform: translateY(0);
+    }
+    50%{
+        text-shadow: 0 0 12px rgba(255,213,79,0.9), 0 0 28px rgba(255,213,79,0.4);
+        transform: translateY(-2px);
+    }
+    100%{
+        text-shadow: 0 0 6px rgba(255,213,79,0.6), 0 0 14px rgba(255,213,79,0.25);
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 700px){
+    .footer{ padding: 1rem; margin: 1rem; }
+    .footer .ablaze{ font-size: 1.05rem; }
+}
