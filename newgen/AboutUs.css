@@ -1,18 +1,27 @@
+
 *{
     margin:0;
     padding:0;
     box-sizing: border-box;
 }
 
+::before ::after    {box-sizing: border-box;}
+html{
+
+    scroll-behavior: smooth; /* inte ryckig scroll */
+}
+
 :root{
     --fontstyle-- :var('Arial Black', Gadget sans-serif);
     --use-color-green--: rgba(22, 58, 38, 0.788);
     --font-black--: black; 
+    --neon-green--:rgb(194, 248, 206);
+    --hover-wheat--:wheat; 
 }
 
 body{
     display:flex;
-    min-height: 150rem; /* Set a minimum height for the body */
+    min-height: 100rem; /* Set a minimum height for the body */
     background-image: url(SamuraiMoon1.png);
     background-position: center;
     background-repeat: no-repeat;
@@ -36,29 +45,203 @@ body{
     font-weight: bold;
     flex-grow: 0.5;
     margin-top: 1rem;
-
 }
 
-.aboutinfo{
+
+
+.hi-box{ /* icon hamburger menu */
+    display:flex;
+    flex-direction: column;
+    align-items: center; /* center children horizontally */
+    text-align: center; /* center text inside */
+    margin-top:5rem;
+    margin-left: 0;
+}
+
+.box button{
+    height:2rem;
+    width:2rem;
+    background-color: transparent;
+    border:none;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+}
+
+.box button:hover{ /* hamburger menu size increase */
+    transform: scale(1.2);
+    transition: transform 0.3s ease;
+}
+
+.box:hover{ /* menu size increase */
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+
+.box a{
+    text-decoration: none;
+    color: var(--font-black--);
     position: relative;
-    border-color: black;
+    padding: 0.5rem 0.8rem;
+}
 
+.box a:hover{
+    color: wheat;
+    transition: color 0.3s ease;
+}
+
+/* Style for active page */
+.box a.active {
+    color: wheat;
+}
+
+/* Underline effect for active page and hover */
+.box a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: wheat;
+    transition: all 0.3s ease;
+}
+
+.box a:hover::after,
+.box a.active::after {
+    width: 100%;
+    left: 0;
+}
+
+.hi-box h1.firstpart{ /* outline welcome in green */
+    color:rgb(194, 248, 206);
+    -webkit-text-stroke-color:  black;
+    -webkit-text-stroke-width: 0.5px; 
+}
+
+/* Navbar: make links horizontal and responsive */
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center; /* center the navbar content */
+    padding: 0.5rem 1rem;
+    gap: 1rem;
+    background-color: rgba(160, 255, 200, 0.555);
+}
+
+.navbar .links{
+    list-style: none;
+    display: flex; /* horizontal layout */
+    align-items: center;
+    gap: 1rem; /* space between items */
+    margin: 0;
+    padding: 0;
+}
+
+.navbar .links{
+    justify-content: center; /* ensure links centered inside navbar */
+}
+
+.navbar .links #sitelogo{
+    width: 3.2rem;
+    height: 3.2rem;
+    margin-top: 0;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.navbar .links li{
+    margin: 0;
+}
+
+.navbar .links li a{
+    display: block;
+    padding: 0.5rem 0.8rem;
+    text-decoration: none;
+    color: var(--font-black--);
+    font-weight: 600;
 }
 
 
+/* Override .box spacing for items inside the navbar so they line up */
+.navbar .box{
+    height: auto;
+    width: auto;
+    margin-top: 0;
+    background-color: transparent;
+    padding: 0;
+    flex-grow: 0;
+    
+}
+
+/* Hamburger appears on small screens */
+.hamburg{
+    display: none; /* hidden on wide screens */
+    height: 2.4rem;
+    width: 2.4rem;
+    background-size: cover;
+    background-position: center;
+    border: none;
+    cursor: pointer;
+}
+
+@media (max-width: 750px){
+    .navbar .links{ display: none; }
+    .hamburg{ display: block; }
+    .navbar{ padding: 0.5rem; }
+}
+
+ .hamburg {
+          display: none;
+        
+        }
+
+        @media (max-width: 750px) {
+          .links {
+            display: none;
+          }
+          .hamburg {
+            display: block;
+          }
+        }
 
 
-/* Footer styling */
+.about-info{
+    max-width: 800px;
+    margin: 6rem auto 0 auto;
+    padding: 2rem;
+    background: rgba(194, 248, 206, 0.61);
+    border-radius: 10px;
+    box-shadow: 0 9px 9px rgb(0, 0, 0);
+    font-family: var(--fontstyle--);
+    color: var(--font-black--);
+    text-align: center;
+}
+
+.about-h{
+    font-size: 2.5rem;
+    margin-bottom: 1.2rem;
+    text-decoration: underline;
+    text-underline-offset: 8px;
+    text-decoration-thickness: 2px;
+}
+
+.about-p{
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
 .footer{
     max-width: 1000px;
-    margin: 2rem auto 3rem;
+    margin: 40rem auto 3rem;
     padding: 1.5rem 1.25rem;
     background: linear-gradient(180deg, rgba(22,58,38,0.06), rgba(22,58,38,0.04));
     border-radius: 10px;
     text-align: center;
     color: rgba(0,0,0,0.85);
     background-color: rgba(194, 248, 206, 0.61);
-    
 }
 
 .footer h2{
@@ -105,6 +288,6 @@ body{
 }
 
 @media (max-width: 700px){
-    .footer{ padding: 1rem; margin: 1rem; }
+    .footer{ padding: 1rem; margin: 9rem 1rem 1rem 1rem; }
     .footer .ablaze{ font-size: 1.05rem; }
 }
