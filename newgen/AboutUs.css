@@ -21,7 +21,7 @@ html{
 
 body{
     display:flex;
-    min-height: 100rem; /* Set a minimum height for the body */
+    min-height: 100rem; 
     background-image: url(SamuraiMoon1.png);
     background-position: center;
     background-repeat: no-repeat;
@@ -36,26 +36,16 @@ body{
     background-color: var(--use-color-green--);
     font-size: 2rem;
     color: var(--font-black--);
-/* 3 to center the text in the boxes */
+
     justify-content: center;
     align-items: center;
     display: flex;
+
     font-style: var(--fontstyle--);
     font-size: medium;
     font-weight: bold;
     flex-grow: 0.5;
     margin-top: 1rem;
-}
-
-
-
-.hi-box{ /* icon hamburger menu */
-    display:flex;
-    flex-direction: column;
-    align-items: center; /* center children horizontally */
-    text-align: center; /* center text inside */
-    margin-top:5rem;
-    margin-left: 0;
 }
 
 .box button{
@@ -68,16 +58,15 @@ body{
     cursor: pointer;
 }
 
-.box button:hover{ /* hamburger menu size increase */
+.box button:hover{ 
     transform: scale(1.2);
     transition: transform 0.3s ease;
 }
 
-.box:hover{ /* menu size increase */
+.box:hover{ 
     transform: scale(1.1);
     transition: transform 0.3s ease;
 }
-
 
 .box a{
     text-decoration: none;
@@ -91,12 +80,10 @@ body{
     transition: color 0.3s ease;
 }
 
-/* Style for active page */
 .box a.active {
     color: wheat;
 }
 
-/* Underline effect for active page and hover */
 .box a::after {
     content: '';
     position: absolute;
@@ -114,17 +101,11 @@ body{
     left: 0;
 }
 
-.hi-box h1.firstpart{ /* outline welcome in green */
-    color:rgb(194, 248, 206);
-    -webkit-text-stroke-color:  black;
-    -webkit-text-stroke-width: 0.5px; 
-}
 
-/* Navbar: make links horizontal and responsive */
 .navbar{
     display: flex;
     align-items: center;
-    justify-content: center; /* center the navbar content */
+    justify-content: center; 
     padding: 0.5rem 1rem;
     gap: 1rem;
     background-color: rgba(160, 255, 200, 0.555);
@@ -197,13 +178,13 @@ body{
 }
 
 @media (max-width: 750px) {
-    .navbar { /* vanlig navbar styling */
+    .navbar { 
         position: relative;
         justify-content: space-between;
         padding: 0.5rem;
     }
 
-    .nav-toggle-label { /* visa hamburger icon på mindre skärm */
+    .nav-toggle-label { 
         display: block;
     }
 
@@ -256,7 +237,7 @@ body{
     padding: 2rem;
     background: rgba(194, 248, 206, 0.61);
     border-radius: 10px;
-    box-shadow: 0 9px 9px rgb(0, 0, 0);
+    box-shadow: 0 9px 9px rgb(0, 0, 0); /* skuggar boxen */
     font-family: var(--fontstyle--);
     color: var(--font-black--);
     text-align: center;

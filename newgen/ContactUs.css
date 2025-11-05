@@ -34,10 +34,11 @@ body{
     background-color: var(--use-color-green--);
     font-size: 2rem;
     color: var(--font-black--);
-/* 3 to center the text in the boxes */
+
     justify-content: center;
     align-items: center;
     display: flex;
+
     font-style: var(--fontstyle--);
     font-size: medium;
     font-weight: bold;
@@ -47,11 +48,11 @@ body{
 
 
 
-.hi-box{ /* icon hamburger menu */
+.hi-box{ 
     display:flex;
     flex-direction: column;
-    align-items: center; /* center children horizontally */
-    text-align: center; /* center text inside */
+    align-items: center; 
+    text-align: center; 
     margin-top:5rem;
     margin-left: 0;
 }
@@ -66,12 +67,12 @@ body{
     cursor: pointer;
 }
 
-.box button:hover{ /* hamburger menu size increase */
+.box button:hover{ 
     transform: scale(1.2);
     transition: transform 0.3s ease;
 }
 
-.box:hover{ /* menu size increase */
+.box:hover{ 
     transform: scale(1.1);
     transition: transform 0.3s ease;
 }
@@ -89,12 +90,12 @@ body{
     transition: color 0.3s ease;
 }
 
-/* Style for active page */
+
 .box a.active {
     color: wheat;
 }
 
-/* Underline effect for active page and hover */
+
 .box a::after {
     content: '';
     position: absolute;
@@ -112,17 +113,10 @@ body{
     left: 0;
 }
 
-.hi-box h1.firstpart{ /* outline welcome in green */
-    color:rgb(194, 248, 206);
-    -webkit-text-stroke-color:  black;
-    -webkit-text-stroke-width: 0.5px; 
-}
-
-/* Navbar: make links horizontal and responsive */
 .navbar{
     display: flex;
     align-items: center;
-    justify-content: center; /* center the navbar content */
+    justify-content: center; 
     padding: 0.5rem 1rem;
     gap: 1rem;
     background-color: rgba(160, 255, 200, 0.555);
@@ -130,15 +124,15 @@ body{
 
 .navbar .links{
     list-style: none;
-    display: flex; /* horizontal layout */
+    display: flex; 
     align-items: center;
-    gap: 1rem; /* space between items */
+    gap: 1rem; 
     margin: 0;
     padding: 0;
 }
 
 .navbar .links{
-    justify-content: center; /* ensure links centered inside navbar */
+    justify-content: center; 
 }
 
 .navbar .links #sitelogo{
@@ -162,8 +156,6 @@ body{
     font-weight: 600;
 }
 
-
-/* Override .box spacing for items inside the navbar so they line up */
 .navbar .box{
     height: auto;
     width: auto;
@@ -174,9 +166,8 @@ body{
     
 }
 
-/* Hamburger appears on small screens */
 .hamburg{
-    display: none; /* hidden on wide screens */
+    display: none; 
     height: 2.4rem;
     width: 2.4rem;
     background-size: cover;
@@ -195,13 +186,13 @@ body{
 }
 
 @media (max-width: 750px) {
-    .navbar { /* vanlig navbar styling */
+    .navbar { 
         position: relative;
         justify-content: space-between;
         padding: 0.5rem;
     }
 
-    .nav-toggle-label { /* visa hamburger icon på mindre skärm */
+    .nav-toggle-label { 
         display: block;
     }
 
@@ -248,8 +239,8 @@ body{
         }
 
 
-/* Contact info styling */
-.contact-info {
+
+.contact-info { 
     max-width: 800px;
     margin: 3rem auto;
     padding: 2rem;
@@ -283,10 +274,9 @@ body{
     
 }
 .contact-info .p .email {
-    white-space: pre-line; /* allows line breaks */
-    
+    white-space: pre-line; /* möjliggör radbrytningar */ 
 }
-/* Contact form styling */
+
 .contact-form {
     display: flex;
     flex-direction: column;
@@ -338,7 +328,7 @@ body{
     background: rgba(194, 248, 206, 0.61);
     border-radius: 10px;
     text-align: center;
-    color: rgba(0,0,0,0.85);
+    color: var(--font-black--);
     margin-top: auto; 
 }
 
@@ -350,7 +340,7 @@ body{
 
 .footer p{
     margin: 0.5rem 0 1rem 0;
-    color: rgba(0,0,0,0.8);
+    color: var(--font-black--);
     max-width: 70ch;
     margin-left: auto;
     margin-right: auto;

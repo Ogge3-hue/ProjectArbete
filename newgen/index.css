@@ -1,5 +1,5 @@
 
-*{
+*{ /* resetar margin och padding för alla element */
     margin:0;
     padding:0;
     box-sizing: border-box;
@@ -21,7 +21,7 @@ html{
 
 body{
     display:flex;
-    min-height: 170rem; /* Set a minimum height for the body */
+    min-height: 170rem; /* set "minimum" på hemsidans längd */
     background-image: url(SamuraiMoon1.png);
     background-position: center;
     background-repeat: no-repeat;
@@ -36,10 +36,11 @@ body{
     background-color: var(--use-color-green--);
     font-size: 2rem;
     color: var(--font-black--);
-/* 3 to center the text in the boxes */
+/* 3 för att centrera texten i rutorna */
     justify-content: center;
     align-items: center;
     display: flex;
+
     font-style: var(--fontstyle--);
     font-size: medium;
     font-weight: bold;
@@ -49,11 +50,11 @@ body{
 
 
 
-.hi-box{ /* icon hamburger menu */
+.hi-box{ 
     display:flex;
     flex-direction: column;
-    align-items: center; /* center children horizontally */
-    text-align: center; /* center text inside */
+    align-items: center; 
+    text-align: center; 
     margin-top:5rem;
     margin-left: 0;
 }
@@ -68,12 +69,12 @@ body{
     cursor: pointer;
 }
 
-.box button:hover{ /* hamburger menu size increase */
+.box button:hover{ 
     transform: scale(1.2);
     transition: transform 0.3s ease;
 }
 
-.box:hover{ /* menu size increase */
+.box:hover{ 
     transform: scale(1.1);
     transition: transform 0.3s ease;
 }
@@ -91,12 +92,12 @@ body{
     transition: color 0.3s ease;
 }
 
-/* Style for active page */
-.box a.active {
+
+.box a.active { /* markerar vilken sida du är på */
     color: wheat;
 }
 
-/* Underline effect for active page and hover */
+/* Underline effekten för aktiva sidor och hover */
 .box a::after {
     content: '';
     position: absolute;
@@ -114,17 +115,16 @@ body{
     left: 0;
 }
 
-.hi-box h1.firstpart{ /* outline welcome in green */
+.hi-box h1.firstpart{ /* outline welcome i svart och ändrar första delen till neon grön */
     color:rgb(194, 248, 206);
     -webkit-text-stroke-color:  black;
     -webkit-text-stroke-width: 0.5px; 
 }
 
-/* Navbar: make links horizontal and responsive */
-.navbar{
+.navbar{/* Navbar: gör länkarna horisontella och responsiva */
     display: flex;
     align-items: center;
-    justify-content: center; /* center the navbar content */
+    justify-content: center; 
     padding: 0.5rem 1rem;
     gap: 1rem;
     background-color: rgba(160, 255, 200, 0.555);
@@ -134,13 +134,13 @@ body{
     list-style: none;
     display: flex; /* horizontal layout */
     align-items: center;
-    gap: 1rem; /* space between items */
+    gap: 1rem; 
     margin: 0;
     padding: 0;
 }
 
 .navbar .links{
-    justify-content: center; /* ensure links centered inside navbar */
+    justify-content: center; 
 }
 
 .navbar .links #sitelogo{
@@ -164,21 +164,20 @@ body{
     font-weight: 600;
 }
 
-
-/* Override .box spacing for items inside the navbar so they line up */
-.navbar .box{
+.navbar .box{ /* Överskriver .box spacing för objekt inuti navbar så de radar upp sig 
+    + 0värdena gör navbaren mer clean i telefon läget*/
     height: auto;
     width: auto;
     margin-top: 0;
     background-color: transparent;
     padding: 0;
     flex-grow: 0;
-    
+
 }
 
-/* Hamburger appears on small screens */
+
 .hamburg{
-    display: none; /* hidden on wide screens */
+    display: none; /* gömmer sig på breda skärmar */
     height: 2.4rem;
     width: 2.4rem;
     background-size: cover;
@@ -196,7 +195,7 @@ body{
     cursor: pointer;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 750px) { /*styling för navbar/hamburger på små skärmar */
     .navbar { /* vanlig navbar styling */
         position: relative;
         justify-content: space-between;
@@ -250,7 +249,6 @@ body{
         }
 
 .hi-box {
-    /* welcome box styling */
     display:flex;
     flex-direction: column;
     align-items: center;
@@ -259,7 +257,7 @@ body{
     color: var(--font-black--);
     background-color: var(--use-color-green--);
     padding: 10px 14px;
-    margin: 1rem auto 3rem; /* increased bottom margin */
+    margin: 1rem auto 3rem; /* ökar marginalen mellan objekten */
     border-radius: 5px;
     font-family: Arial, sans-serif;
 }
@@ -281,18 +279,18 @@ body{
     transition: transform 0.3s ease;
 }
 
-.hi-box h1{ /* tighten heading spacing and center */
+.hi-box h1{ 
     margin: 0;
     line-height: 1.05;
 }
 
 .hi-box .par{
-    max-width: 60ch;
+    max-width: 60ch; /* begränsa radlängd för läsbarhet */
     margin-top: 0.75rem;
 }
 
 .form {
-    /* Center the form and improve spacing */
+    /* centrerar form elementet/stylar */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -303,7 +301,7 @@ body{
     background: linear-gradient(to top, var(--use-color-green--)50% , var(--use-color-green--)50%);
 }
 
-/* Style form elements */
+/* Style form elementen */
 .form h2 {
     margin-bottom: 1.5rem;
     color: var(--font-black--);
@@ -372,7 +370,7 @@ body{
 
 .news-content{
     max-width: 900px;
-    margin: 2rem auto 3rem; /* space above and below */
+    margin: 2rem auto 3rem; /* space över och under */
     padding: 1.5rem 1.25rem;
     background: rgba(194, 248, 206, 0.61); 
     border-radius: 8px;
@@ -386,7 +384,7 @@ body{
     color: var(--font-black--);
     text-align: center;
     -webkit-text-stroke-color:  var(--hover-wheat--);
-    -webkit-text-stroke-width: 0.1px; /* subtle outline */
+    -webkit-text-stroke-width: 0.1px; /* en liten outline i vete-färgen */
 }
 
 .news-content h4{
@@ -414,8 +412,7 @@ body{
     .news-content h3{ font-size: 1.05rem; }
 }
 
-/* Footer styling */
-.footer{
+.footer{/* Footer styling */
     max-width: 1000px;
     margin: 2rem auto 3rem;
     padding: 1.5rem 1.25rem;
@@ -446,16 +443,16 @@ body{
     color: var(--neon-green--);
 }
 
-.footer .ablaze{
+.footer .ablaze{ /* färg och glow på texten "ablaze" */
     margin: 0.25rem 0 0 0;
     font-size: 1.3rem;
     color: #ffd54f; /* yellow glow */
     text-transform: uppercase;
     letter-spacing: 1px;
-    animation: pulseGlow 2s infinite ease-in-out;
+    animation: pulseGlow 2s infinite ease-in-out; /* får glow effekten att loopa och andas */
 }
 
-@keyframes pulseGlow{ /* animation for glowing text */
+@keyframes pulseGlow{ /* stutts för ablaze texten */
     0%{
         text-shadow: 0 0 6px rgba(255,213,79,0.6), 0 0 14px rgba(255,213,79,0.25);
         transform: translateY(0);
@@ -470,7 +467,7 @@ body{
     }
 }
 
-@media (max-width: 700px){
+@media (max-width: 700px){ /* responsiv footer */
     .footer{ padding: 1rem; margin: 1rem; }
     .footer .ablaze{ font-size: 1.05rem; }
 }
