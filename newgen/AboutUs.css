@@ -187,16 +187,58 @@ body{
     cursor: pointer;
 }
 
-@media (max-width: 750px){
-    .navbar .links{ display: none; }
-    .hamburg{ display: block; }
-    .navbar{ padding: 0.5rem; }
+.nav-toggle {
+    display: none;
 }
 
- .hamburg {
-          display: none;
-        
-        }
+.nav-toggle-label {
+    display: none;
+    cursor: pointer;
+}
+
+@media (max-width: 750px) {
+    .navbar { /* vanlig navbar styling */
+        position: relative;
+        justify-content: space-between;
+        padding: 0.5rem;
+    }
+
+    .nav-toggle-label { /* visa hamburger icon på mindre skärm */
+        display: block;
+    }
+
+    .hamburg {
+        display: block;
+        height: 2.4rem;
+        width: 2.4rem;
+    }
+
+    .navbar .links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: rgba(194, 248, 206, 0.932);
+        flex-direction: column;
+        padding: 1rem;
+        z-index: 1000;
+    }
+
+    .nav-toggle:checked ~ .links { 
+        display: flex;
+    }
+
+    .navbar .links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar .links li a {
+        padding: 1rem;
+        display: block;
+    }
+}
 
         @media (max-width: 750px) {
           .links {
