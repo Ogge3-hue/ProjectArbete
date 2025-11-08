@@ -118,7 +118,7 @@ body{
 .hi-box h1.firstpart{ /* outline welcome i svart och ändrar första delen till neon grön */
     color:rgb(194, 248, 206);
     -webkit-text-stroke-color:  black;
-    -webkit-text-stroke-width: 0.5px; 
+    -webkit-text-stroke-width: 0.2px; 
 }
 
 .navbar{/* Navbar: gör länkarna horisontella och responsiva */
@@ -200,10 +200,13 @@ body{
         position: relative;
         justify-content: space-between;
         padding: 0.5rem;
+        display:flex; /* del 1 av attt flytta till höger */
     }
 
     .nav-toggle-label { /* visa hamburger icon på mindre skärm */
         display: block;
+        order: 2; /* del 2 av attt flytta till höger */
+        margin-left:auto;
     }
 
     .hamburg {
@@ -260,6 +263,7 @@ body{
     margin: 1rem auto 3rem; /* ökar marginalen mellan objekten */
     border-radius: 5px;
     font-family: Arial, sans-serif;
+    box-shadow: var(--neon-green--) 0 0 15px;
 }
 
 .hi-box a{
@@ -299,12 +303,15 @@ body{
     padding: 2rem;
     border-radius: 5px;
     background: linear-gradient(to top, var(--use-color-green--)50% , var(--use-color-green--)50%);
+    box-shadow: var(--neon-green--) 0 0 15px;
 }
 
 /* Style form elementen */
 .form h2 {
     margin-bottom: 1.5rem;
-    color: var(--font-black--);
+    color: var(--neon-green--);
+    -webkit-text-stroke-color:  black;
+    -webkit-text-stroke-width: 0.05px;
 }
 
 .form input {
@@ -375,7 +382,7 @@ body{
     background: rgba(194, 248, 206, 0.61); 
     border-radius: 8px;
     color: var(--font-black--);
-    box-shadow: 0 6px 18px var(--hover-wheat--);  /* box glow */
+    box-shadow: 0 9px 20px var(--font-black--);  /* box glow */
 }
 
 .news-content h3{
@@ -440,13 +447,13 @@ body{
 
 .footer .reminder h3{
     margin: 0.5rem 0 0.25rem 0;
-    color: var(--neon-green--);
+    color: var (--font-black--);
 }
 
 .footer .ablaze{ /* färg och glow på texten "ablaze" */
     margin: 0.25rem 0 0 0;
     font-size: 1.3rem;
-    color: #ffd54f; /* yellow glow */
+    color: #ff4f4f; /* röd glow */
     text-transform: uppercase;
     letter-spacing: 1px;
     animation: pulseGlow 2s infinite ease-in-out; /* får glow effekten att loopa och andas */
