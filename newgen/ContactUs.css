@@ -404,3 +404,34 @@ body{
         font-size: 0.8rem;
     }
 }
+
+.hiddenthanks {
+    display: none;
+    background: var(--hover-wheat--);
+    color: var(--font-black--);
+    font-style: italic;
+    padding: 1rem;
+    border-radius: 6px;
+    font-size: 1.4rem;
+    text-align: center;
+    margin: 0 auto 1rem;
+    max-width: 500px;
+    box-shadow: 0 7px 18px rgba(0,0,0,0.15);
+}
+
+/* Visar tack medelandet när den URL:en innehåller #thanks */
+#thanks:target {
+    display: block;
+    animation: slideDown 1s ease-out; /*applicerar animationen */
+}
+
+@keyframes slideDown { /*animation för nedåtskjutning av tack medelandet */
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

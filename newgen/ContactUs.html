@@ -27,7 +27,11 @@
 <div class="contact-info"> <!-- kontakt formuläret -->
     <h1>Contact Us</h1>
     <p>If you have any questions, suggestions, Or feedback, feel free to reach out to us!</p>
-    <form class="contact-form">
+
+    <div id="thanks" class="hiddenthanks">Thanks for submitting<br>your message & information! &#128516;<!--Smiley--></div>
+    <!-- gömd tack för infon-->
+    
+    <form class="contact-form" action="ContactUs.html#thanks" method="GET"><!-- method:get= står i/ny url efter inlämnad info-->
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" placeholder="Your Name" required>
         
