@@ -362,7 +362,7 @@ body{
 .box1, .box2, .box3, .box4 {
     width: 100%;
     height: 100%;
-    background-size: contain;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 8px;
@@ -379,24 +379,12 @@ body{
 
 .box2{
    background-image: url('logo4.png');
-   background-size: cover;
-   background-position: center;
-   width: 100%;
-   height: 100%;
 }
 
 .box3{
    background-image: url('SamuraiKoi1.png');
-   background-size: cover;
-   background-position: center;
-   width: 100%;
-   height: 100%;
 }
 
 .box4{
    background-image: url('SamuraiMoon1.png');
-   background-size: cover;
-   background-position: center;
-   width: 100%;
-   height: 100%;
 }
