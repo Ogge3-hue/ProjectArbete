@@ -71,6 +71,41 @@ countToTen();*/
 
 
 
+/*function performMathOperations(tal) {
+    console.log("Avrundat:", Math.round(tal));
+    console.log("Ceiling:", Math.ceil(tal));
+    console.log("Floor:", Math.floor(tal));
+}
+console.log("Matematiska operationer för talet 4.7:");
+performMathOperations(4.7);
+*/
+
+/*function generateRandomNumber(min, max) {
+ return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+console.log("Slumptal mellan 1 och 100:", generateRandomNumber(1, 100));
+*/
+
+  /* $('#button').hover(
+    function(){
+        $(this).css('color', 'red');
+    },
+    function(){
+        $(this).css('color', 'red');
+    }
+)
+ 
+   $('#button').on ('click', function() {
+    $('p').text('NyText jQuery :) !');
+ 
+    $('p').css ('background-color', 'lightblue');
+ 
+   });
+   */
+
+
+
+
 
 
 
