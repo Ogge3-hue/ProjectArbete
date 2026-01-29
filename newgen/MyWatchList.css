@@ -284,6 +284,7 @@ body{
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(194, 248, 206, 0.3);
     color: var(--hover-wheat--);
+    box-shadow: var(--hover-wheat--) 0 0 1rem;
 }
 
 .watchlist h1 {
