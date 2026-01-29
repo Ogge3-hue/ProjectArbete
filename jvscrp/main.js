@@ -101,16 +101,7 @@ console.log("Slumptal mellan 1 och 100:", generateRandomNumber(1, 100));
     $('p').css ('background-color', 'lightblue');
  
    });
-   */
-
-
-
-
-
-
-
-
-
+    */
 
 
 

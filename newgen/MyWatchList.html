@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnimeFreak</title>
+<link rel="stylesheet" href="MyWatchList.css">
+</head>
+
+<body>
+
+ <div class="navbar">
+    <input type="checkbox" id="nav-toggle" class="nav-toggle"> 
+    <ul class="links"> 
+        <li id="sitelogo" class="box" style="background-image: url('logo4.png'); background-position: center; background-size: contain; background-repeat: no-repeat;"></li>
+        <li class="box"><a href="index.html">Home</a></li>
+        <li class="box"><a href="https://www.crunchyroll.com/news" rel="noreferrer">News</a></li>
+        <li class="box"><a href="AboutUs.html">About Us</a></li>
+        <li class="box"><a href="ContactUs.html">Contact Us</a></li>
+        <li class="box"><a href="MyWatchList.html" class="active">My Watchlist</a></li>
+    </ul>
+    <label for="nav-toggle" class="box nav-toggle-label"> 
+        <div class="hamburg" style="background-image: url(menu.svg);"></div> 
+    </label>
+</div>
+
+ <div class="Watchlist-info"> 
+     <h1 class="">Your Watchlist:</h1>
+     <p class="infotext">Add anime to your watchlist, to save for future viewing. You can add and remove anime from your list. <br>
+     You can randomize a pick from your list. If you are unsure what to watch, click the randomize button. <br> When you are done watching an anime, you can mark it as watched.</p>
+ </div>
+
+<div class="watchlist">
+    <h1>WATCHLIST:</h1>
+    <div class="search-container">
+        <input type="text" id="searchInput" class="search-bar" placeholder="Enter anime title...">
+        <button id="addBtn" class="add-btn">Add to Watchlist</button>
+    </div>
+
+    <div class="filter-buttons">
+        <button id="allBtn" class="filter-btn active">All</button>
+        <button id="unwatchedBtn" class="filter-btn">Unwatched</button>
+        <button id="watchedBtn" class="filter-btn">Watched</button>
+    </div>
+
+    <div id="animeList" class="anime-list"> 
+    </div>
+</div>
+
+<script src="MyWatchList.js"></script>
+</body>
+
+</html>
