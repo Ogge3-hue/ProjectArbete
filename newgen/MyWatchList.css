@@ -521,3 +521,46 @@ body{
         font-size: 2rem;
     }
 }
+
+.anime-list li{ /*style på inskriva list-titlarna*/
+     list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:  var(--neon-green--);
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    color: var(--font-black--);
+    position: relative;
+    transition: box-shadow 0.2s ease;
+    -webkit-text-stroke-color:  var(--hover-wheat--);
+    -webkit-text-stroke-width: 0.02px; 
+}
+
+.anime-list li:hover{ 
+    box-shadow: 0 0 10px var(--neon-green--);
+}
+
+.anime-list li .allBtn{ /* Stil för knappen bredvid varje lista */
+    margin-right: 15px;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    border: 2px solid var(--font-black--);
+    background-color: var(--use-color-green--);
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+
+
+
+
+
+
+
+
+
+

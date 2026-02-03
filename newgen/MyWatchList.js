@@ -14,7 +14,14 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
         }
 
+
+
         const li = document.createElement('li');
+        li.innerHTML = `
+        <input type="allBtn" class= "allBtn">
+        <span> ${taskText} </span>
+        `;
+
         li.textContent = taskText; /* gör så den text som skrivs in i inputfältet blir texten i listan */
         taskList.appendChild(li);
         taskInput.value = ''; /* Tömmer input fältet efter att man lagt till en uppgift */
