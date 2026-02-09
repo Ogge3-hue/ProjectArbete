@@ -554,8 +554,109 @@ body{
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
+/* Styling för tasklist items och knapparna deleted och compleated*/
+#AnimeItems li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    background-color: var(--hover-wheat--);
+    border-radius: 5px;
+}
+
+#AnimeItems li span { /* list-titlarna i tasklistan/alternativen */
+    flex-grow: 1;
+    color: var(--use-color-green--);
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    font-family: Arial, sans-serif;
+}
+/* Knapparna deleted och compleated*/
+.delete-btn, .watched-btn {
+    padding: 0.5rem 1rem;
+    margin-left: 0.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.delete-btn {
+    background-color: #ff6b6b;
+    color: white;
+}
 
 
+.watched-btn {
+    background-color: #4caf50;
+    color: white;
+}
+.delete-btn:hover {
+    background-color: #ff5252;
+    transform: scale(1.2);
+}
+
+.watched-btn:hover {
+    background-color: #50b755;
+    transform: scale(1.2);
+}
+
+.edit-btn:hover {
+    background-color: #e6b33a;
+    transform: scale(1.2);
+}
+
+/* Edit button: styled similarly to other action buttons, but yellowish */
+.edit-btn {
+    padding: 0.5rem 1rem;
+    margin-left: 0.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    background-color: #f0c04a; /* warm yellow */
+    color: white;
+}
+
+#AnimeItems li.watched span {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+/* Make images inside list buttons slightly smaller */
+#AnimeItems li button img,
+.anime-list li .allBtn img,
+#AnimeItems li .delete-btn img,
+#AnimeItems li .watched-btn img,
+#AnimeItems li .edit-btn img {
+    width: 1rem;
+    height: 1rem;
+    object-fit: contain;
+    display: block;
+}
+
+
+#AnimeItems li input { /* edit input fältet */
+    flex-grow: 1;
+    color: var(--use-color-green--);
+    font-size: 1.2rem;
+    font-weight: 600;
+    font-family: Arial, sans-serif;
+    padding: 0.5rem;
+    border: 2px solid var(--use-color-green--);
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+#AnimeItems li input:focus {
+    outline: none;
+    background-color: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 8px var(--use-color-green--);
+}
 
 
 

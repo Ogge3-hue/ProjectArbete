@@ -29,7 +29,7 @@
     <h1>Contact Us</h1>
     <p>If you have any questions, suggestions, Or feedback, feel free to reach out to us!</p>
 
-    <div id="thanks" class="hiddenthanks">Thanks for submitting<br>your message & information! &#128516;<!--Smiley--></div>
+    <div id="thanks" class="hiddenthanks">Thanks for submitting<br>your message & information! &#128516;<!--Smiley--> <br> Feel free to give more feedback!</div>
     <!-- gömd tack för infon-->
     
     <form class="contact-form" action="ContactUs.html#thanks" method="post"><!-- action=tar oss till en sub-sida av contactUs, method:get= står i/ny url efter inlämnad info (id:et)-->
@@ -40,7 +40,8 @@
         <input type="email" id="email" name="email" placeholder="Your Email" required>
         
         <label for="message">Message:</label>
-        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+        <div class="message-counter"><span id="charCount">0</span>/500</div>
+        <textarea id="message" name="message" placeholder="Your Message" required maxlength="500"></textarea>
         
         <button type="submit" class="submit-btn">Send Message</button>
     </form>
