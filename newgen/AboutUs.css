@@ -21,7 +21,7 @@ html{
 
 body{
     display:flex;
-    min-height: 130rem; 
+    min-height: 160rem; 
     background-image: url(SamuraiMoon1.png);
     background-position: center;
     background-repeat: no-repeat;
@@ -366,11 +366,7 @@ body{
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 8px;
-    transition: transform 0.3s ease;
-}
-
-.box1, .box2, .box3, .box4:hover {
-    transform: scale(0.95);
+    /* Images remain static; no transform/hover scaling */
 }
 
 .box1{
@@ -387,4 +383,61 @@ body{
 
 .box4{
    background-image: url('SamuraiMoon1.png');
+}
+/* Randomizer game styling - matches site cards (about/footer) */
+.RandomizerGame {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1.75rem;
+    background: rgba(194, 248, 206, 0.61);
+    border-radius: 10px;
+    box-shadow: 0 9px 16px rgba(0,0,0,0.3);
+    text-align: center;
+    color: var(--font-black--);
+    font-family: var(--fontstyle--);
+}
+
+.RandomizerGame .game-title{
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.RandomizerGame .game-instructions{
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.RandomizerGame .randomize-btn{
+    background: linear-gradient(90deg, var(--neon-green--), rgba(194,248,206,0.9));
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.RandomizerGame .randomize-btn:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 10px 18px rgba(0,0,0,0.2);
+}
+
+.RandomizerGame .anime-result{
+    margin-top: 1rem;
+    min-height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1.05rem;
+    padding: 0.5rem 0.75rem;
+    background:rgba(245, 222, 179, 0.67);
+    border-radius: 8px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+}
+
+@media (max-width: 700px){
+    .RandomizerGame{ margin: 1.5rem 1rem; padding: 1rem; }
+    .RandomizerGame .game-title{ font-size: 1.4rem; }
 }
