@@ -478,3 +478,106 @@ body{
     .footer{ padding: 1rem; margin: 1rem; }
     .footer .ablaze{ font-size: 1.05rem; }
 }
+
+.search-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background-color: var(--use-color-green--);
+    border-radius: 8px;
+    box-shadow: var(--neon-green--) 0 0 20px;
+    width: fit-content;
+}
+
+.Searchbar{
+    width: 17rem;
+    height: 2.5rem;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--neon-green--);
+    border-radius: 6px;
+    background: var(--hover-wheat--);
+    color: var(--font-black--);
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.Searchbar::placeholder{
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.Searchbar:focus{
+    outline: none;
+    border-color: var(--hover-wheat--);
+    box-shadow: var(--neon-green--) 0 0 12px inset, var(--neon-green--) 0 0 8px;
+    transform: scale(1.02);
+}
+
+.Searchbar:hover{
+    border-color: var(--hover-wheat--);
+    box-shadow: var(--neon-green--) 0 0 10px;
+}
+
+@media (max-width: 700px){
+    .search-container{
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 1rem;
+    }
+    
+    .Searchbar{
+        width: 14rem;
+        height: 2.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+.sokknappen{
+    width: 2.5rem;
+    height: 2.5rem;
+    background-size: 60%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 2px solid var(--neon-green--);
+    border-radius: 6px;
+    background-color: var(--hover-wheat--);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sokknappen:hover{
+    background-color: var(--neon-green--);
+    box-shadow: var(--hover-wheat--) 0 0 12px;
+    transform: scale(1.1);
+}
+
+.sokknappen:active{
+    transform: scale(0.95);
+}
+
+@media (max-width: 700px){
+    .sokknappen{
+        width: 2.2rem;
+        height: 2.2rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
