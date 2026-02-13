@@ -543,7 +543,7 @@ body{
     background-repeat: no-repeat;
     border: 2px solid var(--neon-green--);
     border-radius: 6px;
-    background-color: var(--hover-wheat--);
+    background-color: var(--use-color-green--);
     cursor: pointer;
     transition: all 0.3s ease;
 }

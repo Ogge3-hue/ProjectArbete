@@ -3,168 +3,133 @@ document.addEventListener('DOMContentLoaded', () => {
     const taskInput = document.getElementById('searchInput');
     const addTaskButton = document.getElementById('addBtn');
     const taskList = document.getElementById('AnimeItems');
-    const allBtn = document.getElementById('allBtn');
+    const notWatchedBtn = document.getElementById('notWatchedBtn');
     const watchedBtn = document.getElementById('watchedBtn');
     let currentFilter = 'not-watched'; /* 'all', 'watched', 'not-watched' */
 
-    /* Funktion för att filtrera anime-items */
-    const filterItems = (filter) => {
-        const items = taskList.querySelectorAll('li');
-        items.forEach(item => {
-            if (filter === 'all') {
-                item.style.display = '';
-            } else if (filter === 'watched') {
-                item.style.display = item.classList.contains('watched') ? '' : 'none';
-            } else if (filter === 'not-watched') {
-                item.style.display = !item.classList.contains('watched') ? '' : 'none';
-            }
-        });
-    };
+    /* Funktion för att filtrera anime-items - centraliserad: sätter currentFilter, uppdaterar knappar och renderar */
+const filterItems = (filter) => {
+    currentFilter = filter;
+    
+ // uppdatera active-klass på filterknapparna
+    if (notWatchedBtn) { if (filter === 'not-watched') notWatchedBtn.classList.add('active');
+       else notWatchedBtn.classList.remove('active');
+    }
+    if (watchedBtn) { if (filter === 'watched') watchedBtn.classList.add('active');
+        else watchedBtn.classList.remove('active');
+    }
+    renderItems();
+};
 
-    /* Event listeners för filter-knapparna */
-    allBtn.addEventListener('click', () => {
-        currentFilter = 'not-watched';
-        allBtn.classList.add('active');
-        watchedBtn.classList.remove('active');
-        filterItems(currentFilter);
-    });
-    watchedBtn.addEventListener('click', () => {
-        currentFilter = 'watched';
-        watchedBtn.classList.add('active');
-        allBtn.classList.remove('active');
-        filterItems(currentFilter);
-    });
+const readList = () => { // Anime Lista Array, ID/Title/watched? 
+const raw = localStorage.getItem('animeList'); 
+//hämtar data från localStorage, om det inte finns så returnerar den en tom array
+    if (!raw) return [];
+    try { const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return [];
+// gammal data blir till strings
+    return parsed.map(entry => {
+        if (typeof entry === 'string') { return { id: `id-${Date.now()}-${Math.random()}`, title: entry, watched: false };
+}
+// kollar så id och watched finns
+    return {id: entry.id || `id-${Date.now()}-${Math.random()}`,
+title: entry.title || '',
+watched: !!entry.watched,};
+});} 
+catch (e) {return [];}
+};
 
-    /* Sätt initial active state */
-    allBtn.classList.add('active');
+const writeList = (arr) => localStorage.setItem('animeList', JSON.stringify(arr)); 
+//sparar till localstorage, skriver hela listan som json.
+const addAnime = (title) => { const list = readList();
+// nytt item i listan, med id (watched=false) så den ligger i not watched.
+const item = { id: `id-${Date.now()}-${Math.random()}`, title, watched: false };
+list.push(item);
+writeList(list);
+
+};
+
+const deleteAnime = (id) => { const list = readList().filter(i => i.id !== id);
+writeList(list);
+};
+
+const toggleWatched = (id) => { const list = readList();
+const idx = list.findIndex(i => i.id === id);
+if (idx > -1) { list[idx].watched = !list[idx].watched; writeList(list);}
+// togglar watched status(bolean från false till true), så den flyttas mellan watched och not watched
+};
+
+const updateTitle = (id, newTitle) => { const list = readList();
+const idx = list.findIndex(i => i.id === id); //hitta item via ID, ändra titel och sparar.
+    if (idx > -1) { list[idx].title = newTitle; writeList(list);}
+};
 
 
+// Rendrar från anime-list där titlarna vet om det är watched
+const renderItems = () => { taskList.innerHTML = '';
+const list = readList();
+    let itemsToShow = [];
+        if (currentFilter === 'watched') itemsToShow = list.filter(i => i.watched);
+        else itemsToShow = list.filter(i => !i.watched);
 
-
-
-
-    const addTask = (event) => {
-        event.preventDefault(); /* Förhindrar att sidan laddas om när knappen klickas */
-        const taskText = taskInput.value.trim();
-        if (!taskText){ 
-        return; /* Om inget är ifyllt i inputfältet, returnera */
-        }
-
-        const li = document.createElement('li'); 
-        li.innerHTML = `
-        <span>${taskText}</span>
+itemsToShow.forEach(item => { const li = document.createElement('li');
+    li.dataset.id = item.id;
+    li.className = item.watched ? 'watched' : '';
+    li.innerHTML = `
+        <span>${item.title}</span>
         <button class="delete-btn"><img src="Delete.png" alt="Delete"></button>
         <button class="edit-btn"><img src="Edit.png" alt="Edit"></button>
-        <button class="watched-btn"><img src="Check.png" alt="Watched"></button>
-        `;/* checkar compleated och ta bort + lagit in bilderna i/och knapparna(vanlig html)*/
+        ${item.watched ? '<button class="unwatch-btn"><img src="Bakpilen.png" alt="Unwatch"></button>' :
+        '<button class="watched-btn"><img src="Check.png" alt="Watched"></button>'}`;
+attachListenersToLi(li, item);
+taskList.appendChild(li);});
+};
 
+function attachListenersToLi(li, item) { const id = item.id;
+// kopplar knapparna till sina funktioner, watched/unwatched.
+const deleteBtn = li.querySelector('.delete-btn');
+const editBtn = li.querySelector('.edit-btn');
+const watchedBtn = li.querySelector('.watched-btn');
+const unwatchBtn = li.querySelector('.unwatch-btn');
+    if (deleteBtn) deleteBtn.addEventListener('click', () => { deleteAnime(id); renderItems(); });
+    if (watchedBtn) watchedBtn.addEventListener('click', () => { toggleWatched(id); renderItems(); });
+    if (unwatchBtn) unwatchBtn.addEventListener('click', () => { toggleWatched(id); renderItems(); });
+    if (editBtn) {editBtn.addEventListener('click', () => { const span = li.querySelector('span');
 
+const existingInput = li.querySelector('input[type="text"]');
+    if (existingInput) return;
 
+const current = span.textContent;
+const input = document.createElement('input');
+    input.type = 'text';
+    input.value = current;
+    li.replaceChild(input, span);
+    input.focus();
 
+const save = () => {
+const v = input.value.trim();
+    if (v) updateTitle(id, v);
+    renderItems();};
 
+    input.addEventListener('blur', save);
+    input.addEventListener('keydown', (e) => { if (e.key === 'Enter') save(); });
+});}}
 
+// Filter knapparna klickhändelser, ändrar currentFilter och renderar om listan.
+notWatchedBtn.addEventListener('click', () => { filterItems('not-watched'); });
 
-        /* Event listener för edit knappen */
-        const editBtn = li.querySelector('.edit-btn');
-        editBtn.addEventListener('click', () => {
-            const span = li.querySelector('span');
-            const existingInput = li.querySelector('input[type="text"]');
+watchedBtn.addEventListener('click', () => { filterItems('watched'); });
 
-            /* Om du är i editing, klickar du på gula knappen är samma som enter*/
-            if (existingInput) {
-                const newText = existingInput.value.trim();
-                if (newText) {
-                    const newSpan = document.createElement('span');
-                    newSpan.textContent = newText;
-                    li.replaceChild(newSpan, existingInput);
-                }
-                const watchedBtnDuringEdit = li.querySelector('.watched-btn');
-                if (watchedBtnDuringEdit) watchedBtnDuringEdit.style.display = '';
-                return;
-            }
+// Initiala tillståndet: visa not-watched
+filterItems('not-watched');
 
-            /* När du börjar edit, så ljusterar du texten/"span"*/
-            const currentText = span.textContent;
-            const input = document.createElement('input');
-            input.type = 'text';
-            input.value = currentText;
-            li.replaceChild(input, span);
-            input.focus();
+// Lägg till anime titel
+const addTask = (event) => { event.preventDefault();
+const text = taskInput.value.trim();
+    if (!text) return;
+addAnime(text);
+taskInput.value = '';
+    renderItems();};
 
-            const watchedBtnDuringEdit = li.querySelector('.watched-btn'); /* Gömmer den gröna knappen*/
-            if (watchedBtnDuringEdit) watchedBtnDuringEdit.style.display = 'none';
-
-            const saveEdit = () => {
-                const newText = input.value.trim();
-                if (newText) {
-                    const newSpan = document.createElement('span');
-                    newSpan.textContent = newText;
-                    li.replaceChild(newSpan, input);
-                }
-                if (watchedBtnDuringEdit) watchedBtnDuringEdit.style.display = '';
-            };
-
-            input.addEventListener('blur', saveEdit); /*Skriver in, samt sparar det du skrivit även om du klickar utanför   */
-            input.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    saveEdit();
-                }
-            });
-        });
-        taskList.appendChild(li);
-        
-
-        /* Event listener för delete knappen */
-        const deleteBtn = li.querySelector('.delete-btn');
-        deleteBtn.addEventListener('click', () => {
-            li.remove();
-
-
-
-            if (currentFilter === 'watched') { 
-                /*om man är i listan watched, och tar bort sista list-alternativet
-                så hoppar du tillbaka i not watched*/
-                const remainingWatched = taskList.querySelectorAll('li.watched').length;
-                if (remainingWatched === 0) {
-                    currentFilter = 'not-watched';
-                    allBtn.classList.add('active');
-                    watchedBtn.classList.remove('active');
-                    filterItems(currentFilter);
-                }
-            }
-        });
-        
-
-
-        /* Event listener för watched knappen / den gröna knappen */
-        const watchedBtnItem = li.querySelector('.watched-btn');
-        watchedBtnItem.addEventListener('click', () => {
-            li.classList.toggle('watched');
-            if (li.classList.contains('watched')) {
-                watchedBtnItem.remove(); /*tar bort ur watchlisten och flyttar till watched */
-            }
-
-            filterItems(currentFilter);
-            if (currentFilter === 'watched') {
-                const remainingWatched = taskList.querySelectorAll('li.watched').length;
-                if (remainingWatched === 0) {
-                    currentFilter = 'not-watched';
-                    allBtn.classList.add('active');
-                    watchedBtn.classList.remove('active');
-                    filterItems(currentFilter);
-                }
-            }
-        });
-        
-        taskInput.value = ''; /* Tömmer input fältet efter att man lagt till en uppgift */
-    };
-
-addTaskButton.addEventListener('click', addTask); /* när knappar klickas, lyssnar den */
-taskInput.addEventListener('keypress', (e) => { /*kollar efter keypresses*/
-    if (e.key === 'Enter') { /*Gör så enter,är trigger*/
-        addTask(e); /* e är förkortning av event, som skickas till addTask funktionen */
-    }
-
-});
-
-});
+addTaskButton.addEventListener('click', addTask);
+taskInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') addTask(e); });});
