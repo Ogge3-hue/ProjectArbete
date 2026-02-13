@@ -2,11 +2,30 @@ document.addEventListener('DOMContentLoaded', function() {
     const randomizerGame = document.querySelector('.randomizer-game');
     const randomizeBtn = document.getElementById('randomize-btn');
     const animeResult = document.getElementById('anime-result');
+    const storageKey = 'savedAnime';
 
 
 
  if (randomizeBtn) {
+    // kallar tillbaka sparat resultat från localStorage om det finns, annars visar randomize-knappen
+    const saved = localStorage.getItem(storageKey);
+    if (saved) {
+        animeResult.textContent = saved;
+        randomizeBtn.textContent = 'Clear Saved';
+    } else {
+        randomizeBtn.textContent = 'Randomize';
+    }
+    
     randomizeBtn.addEventListener('click', function() {
+        // visa sparat resultat om det finns, annars randomisera nytt
+        const currentlySaved = localStorage.getItem(storageKey);
+        if (currentlySaved) {
+            localStorage.removeItem(storageKey);
+            animeResult.textContent = '';
+            randomizeBtn.textContent = 'Randomize';
+            return;
+        }
+
         const animeList = [ // listan av alternativen för randomizer
             "Attack on Titan",
             "Demon Slayer",
@@ -72,6 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ];
         const randomAnime = animeList[Math.floor(Math.random() * animeList.length)];
         animeResult.textContent = randomAnime; //random anime visas i resultatdiven
+        localStorage.setItem(storageKey, randomAnime);
     });
  }
 
